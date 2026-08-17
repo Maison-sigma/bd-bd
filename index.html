@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bras Dessus, Bras Dessous | Accompagnement des personnes vulnérables et des majeurs protégés</title>
+<meta name="description" content="Christelle Boutonnet accompagne les majeurs protégés et les personnes en grande vulnérabilité, à domicile comme en établissement. Paris et Île-de-France.">
+<link rel="icon" type="image/png" href="logo/favicon-512.png">
+<link rel="apple-touch-icon" href="logo/favicon-180.png">
+<link rel="canonical" href="https://bd-bd.fr/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Bras Dessus, Bras Dessous">
+<meta property="og:url" content="https://bd-bd.fr/">
+<meta property="og:title" content="Bras Dessus, Bras Dessous | Le lien pour le bien">
+<meta property="og:description" content="Christelle Boutonnet accompagne les majeurs protégés et les personnes en grande vulnérabilité, à domicile comme en établissement.">
+<meta property="og:image" content="https://bd-bd.fr/img/og-bdbd.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ProfessionalService",
+  "name":"Bras Dessus, Bras Dessous",
+  "slogan":"Le lien pour le bien",
+  "url":"https://bd-bd.fr/",
+  "email":"contact@bd-bd.fr",
+  "telephone":"+33689238086",
+  "founder":{
+    "@type":"Person",
+    "name":"Christelle Boutonnet",
+    "jobTitle":"Psychopraticienne",
+    "sameAs":[
+      "https://www.linkedin.com/in/christelle-boutonnet/",
+      "https://www.instagram.com/christelle.boutonnet"
+    ]
+  },
+  "description":"Accompagnement des majeurs protégés et des personnes en grande vulnérabilité, à domicile comme en établissement."
+}
+</script>
+<!-- Polices servies par le site lui-meme. Aucun appel a un service distant :
+     l'adresse IP du visiteur ne part chez aucun tiers. Seules les trois
+     graisses de l'en-tete et du hero sont prechargees. -->
+<link rel="preload" href="fonts/poppins-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/poppins-500-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* ============ POLICES LOCALES ============ */
+/* Poppins et Lora, sous-ensembles latin et latin-ext generes depuis les sources
+   Google Fonts sous licence SIL Open Font 1.1 (fonts/OFL-Poppins.txt,
+   fonts/OFL-Lora.txt). Le decoupage par unicode-range fait que le texte
+   francais ne telecharge que les fichiers latin. */
+@font-face{font-family:'Poppins';font-style:normal;font-weight:300;font-display:swap;src:url(fonts/poppins-300-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:300;font-display:swap;src:url(fonts/poppins-300-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/poppins-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/poppins-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/poppins-500-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/poppins-500-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/poppins-600-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/poppins-600-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/poppins-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/poppins-700-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Lora';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/lora-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Lora';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/lora-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Lora';font-style:italic;font-weight:400;font-display:swap;src:url(fonts/lora-400-italic-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Lora';font-style:italic;font-weight:400;font-display:swap;src:url(fonts/lora-400-italic-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+:root{
+  /* Palette de reference, charte 03.1 */
+  --vert-profond:#1F4C41;
+  --vert-foret:#31584B;
+  --eucalyptus:#5F7772;
+  --sauge:#83A291;
+  --ivoire:#F7F5F0;
+  --gris-chaud:#D2CFC8;
+  /* Le prune #491C70 n'apparait nulle part en CSS : il vit uniquement
+     dans le fichier du signe infini. Charte 03.2, dominance 1 %. */
+
+  /* Eucalyptus porte tout le texte secondaire du site. Tel quel il plafonne
+     a 4,41:1 sur l'ivoire et 4,10:1 sur le fond teinte, sous le seuil AA de
+     4,5:1 que la page des mentions legales s'engage a respecter. Cette
+     variante est le meme ton assombri de 6 % : 4,88:1 et 4,54:1. La couleur
+     de charte ci-dessus reste intacte, seul le texte utilise la variante. */
+  --eucalyptus-texte:#59706B;
+
+  --display:'Poppins',system-ui,sans-serif;   /* titres, labels, texte courant */
+  --citation:'Lora',Georgia,serif;            /* citations, verbatims, manifeste */
+
+  --pad:clamp(20px,5vw,56px);
+  --sect:clamp(80px,12vh,132px);
+  --max:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--ivoire);color:var(--vert-foret);font-family:var(--display);font-weight:400;font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--vert-profond);text-decoration:none}
+a:hover{color:var(--eucalyptus-texte)}
+:focus-visible{outline:2px solid var(--vert-profond);outline-offset:3px}
+/* height:auto laisse le ratio des attributs width/height piloter la hauteur :
+   la largeur vient du CSS, la hauteur suit, et le navigateur reserve la place
+   avant le chargement (zero decalage de mise en page). */
+img{max-width:100%;display:block;height:auto}
+picture{display:block}
+.wrap{max-width:var(--max);margin:0 auto}
+.evitement{position:absolute;left:-9999px;top:0;z-index:100;background:var(--vert-profond);color:var(--ivoire);padding:12px 20px;font-weight:600}
+.evitement:focus{left:12px;top:12px;color:var(--ivoire)}
+section{padding:var(--sect) var(--pad)}
+
+/* Surtitre, charte 04.2 : 9 pt Bold, interlettrage +2,4 */
+.surtitre{display:block;font-weight:600;font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--vert-foret)}
+.surtitre.clair{color:var(--ivoire);opacity:.92}
+
+h1,h2,h3{font-family:var(--display);color:var(--vert-profond)}
+
+/* Filet continu, charte 05.2 : gris chaud, il separe, il ne souligne pas */
+.filet{display:block;width:100%;height:1px;background:var(--gris-chaud);border:0}
+
+/* Point d'ancrage, charte 05.2 : disque plein 4 a 6 px, vert foret */
+.ancre{display:block;width:6px;height:6px;border-radius:50%;background:var(--vert-foret)}
+.ancre.clair{background:var(--sauge)}
+
+/* ============ EN-TETE ============ */
+header{position:sticky;top:0;z-index:60;background:rgba(247,245,240,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--gris-chaud);display:flex;align-items:center;justify-content:space-between;gap:24px;padding:13px var(--pad)}
+/* Version horizontale, taille minimale 170 px, charte 02.3 */
+header .logo{width:190px}
+@media(max-width:420px){header .logo{width:158px}}
+nav.liens{display:flex;gap:clamp(14px,2.2vw,28px);font-size:14px;font-weight:500}
+nav.liens a{color:var(--vert-foret)}
+
+/* Bouton du menu, visible sous 960 px uniquement */
+.burger{display:none;background:none;border:1px solid var(--gris-chaud);border-radius:8px;width:46px;height:46px;align-items:center;justify-content:center;cursor:pointer;flex:none;padding:0}
+.burger span{display:block;width:20px;height:1.5px;background:var(--vert-foret);position:relative;transition:background .2s}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:20px;height:1.5px;background:var(--vert-foret);transition:transform .25s}
+.burger span::before{top:-6px}
+.burger span::after{top:6px}
+.burger[aria-expanded="true"] span{background:transparent}
+.burger[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg)}
+
+@media(max-width:960px){
+  .burger{display:flex}
+  nav.liens{position:fixed;inset:66px 0 auto 0;flex-direction:column;gap:0;background:var(--ivoire);border-bottom:1px solid var(--gris-chaud);padding:8px var(--pad) 26px;transform:translateY(-118%);transition:transform .3s ease;box-shadow:0 22px 40px -26px rgba(31,76,65,.5);max-height:calc(100vh - 66px);overflow-y:auto}
+  nav.liens[data-ouvert="true"]{transform:translateY(0)}
+  nav.liens a{padding:15px 0;font-size:17px;border-bottom:1px solid var(--gris-chaud)}
+  nav.liens a:last-child{border-bottom:0}
+}
+@media(prefers-reduced-motion:reduce){nav.liens{transition:none}}
+
+/* ============ HERO ============ */
+/* Pas de logo ici : l'en-tete le porte deja. Charte 05.2, le motif
+   ne va jamais sur un support portant deja le logo. */
+.hero{background:var(--vert-profond);color:var(--ivoire);min-height:min(78vh,720px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.hero h1{color:var(--ivoire);font-weight:600;font-size:clamp(40px,7vw,72px);line-height:1.06;margin:24px 0 28px;letter-spacing:-.01em}
+.hero p{max-width:640px;font-size:clamp(16.5px,2.1vw,19px);line-height:1.7;color:var(--ivoire);opacity:.88;text-wrap:pretty}
+.hero .ancre{margin:34px auto 0}
+
+/* ============ MANIFESTE ============ */
+.manifeste{background:var(--vert-foret);color:var(--ivoire)}
+.manifeste .tete{max-width:800px;margin:0 auto 42px;text-align:center}
+.manifeste h2{color:var(--ivoire);font-family:var(--citation);font-style:italic;font-weight:400;font-size:clamp(24px,3.3vw,35px);line-height:1.4;margin-top:22px;text-wrap:pretty}
+.litanie{display:flex;flex-direction:column;gap:15px;text-align:left}
+@media(max-width:760px){.litanie{text-align:center}}
+.litanie p{font-weight:400;font-size:clamp(17px,2.3vw,22px);line-height:1.5;color:var(--ivoire);opacity:.78;text-wrap:balance}
+.litanie p b{font-weight:500;opacity:1;color:var(--ivoire)}
+.manif-duo{display:grid;grid-template-columns:minmax(260px,340px) 1fr;gap:clamp(30px,5vw,64px);align-items:center;max-width:900px;margin:0 auto}
+@media(max-width:760px){.manif-duo{grid-template-columns:1fr;gap:34px}.player{max-width:300px;margin:0 auto}}
+.player{position:relative;border-radius:12px;overflow:hidden;background:var(--vert-profond);aspect-ratio:9/16;cursor:pointer;border:0;width:100%;padding:0;display:block}
+.player video{width:100%;height:100%;object-fit:cover}
+.play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:18px;color:var(--ivoire);font-family:var(--display);font-weight:600;font-size:12px;letter-spacing:.24em;text-transform:uppercase;background:linear-gradient(180deg,rgba(31,76,65,.25),rgba(31,76,65,.62));border:0;cursor:pointer;width:100%}
+.play .rond{width:72px;height:72px;border-radius:50%;background:var(--ivoire);color:var(--vert-profond);display:flex;align-items:center;justify-content:center;font-size:21px;padding-left:6px;transition:transform .25s ease}
+.player:hover .rond{transform:scale(1.06)}
+.sous-player{margin:26px 0 0;color:var(--ivoire);opacity:.72;font-size:15px;line-height:1.7;max-width:440px}
+@media(max-width:760px){.sous-player{margin-left:auto;margin-right:auto;text-align:center}}
+
+/* ============ BLOCS CLAIRS ============ */
+.tint{background:#EFEDE6}
+.tete-sect{max-width:720px;margin-bottom:52px}
+.tete-sect h2{font-weight:600;font-size:clamp(27px,3.7vw,38px);line-height:1.2;margin:16px 0 18px}
+.tete-sect p{color:var(--eucalyptus-texte);font-size:16.5px;text-wrap:pretty}
+.centre{margin-left:auto;margin-right:auto;text-align:center}
+
+.raison{text-align:center;display:flex;flex-direction:column;align-items:center}
+.raison .grand{max-width:900px;font-weight:500;font-size:clamp(22px,3.1vw,31px);line-height:1.45;color:var(--vert-profond);margin-top:22px;text-wrap:pretty}
+.raison .petit{max-width:700px;margin-top:26px;color:var(--eucalyptus-texte);font-size:16.5px;text-wrap:pretty}
+
+.cartes{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:36px}
+.carte h3{font-weight:600;font-size:19px;margin:16px 0 11px}
+.carte p{font-size:15.5px;line-height:1.7;color:var(--eucalyptus-texte)}
+.carte .ancre{margin-bottom:2px}
+
+/* ============ METHODE ============ */
+.pilier{display:grid;grid-template-columns:58px 1fr;gap:clamp(16px,3vw,36px);padding:28px 0;border-top:1px solid var(--gris-chaud);align-items:baseline}
+.pilier:last-of-type{border-bottom:1px solid var(--gris-chaud)}
+.pilier .n{font-weight:600;font-size:14px;color:var(--eucalyptus-texte);letter-spacing:.08em}
+.pilier h3{font-weight:500;font-size:clamp(18px,2.3vw,22px);line-height:1.35}
+.pilier p{font-size:15.5px;color:var(--eucalyptus-texte);margin-top:7px;max-width:640px}
+@media(max-width:640px){.pilier{grid-template-columns:1fr;gap:4px}}
+
+.lieux{margin-top:56px;background:var(--vert-profond);color:var(--ivoire);border-radius:12px;padding:clamp(32px,5vw,54px)}
+.lieux h3{color:var(--ivoire);font-weight:600;font-size:clamp(21px,2.9vw,27px);margin:16px 0 13px}
+.lieux>p{color:var(--ivoire);opacity:.8;max-width:620px;font-size:15.5px}
+.puces{display:flex;flex-wrap:wrap;gap:9px;margin:28px 0 32px}
+.puces{max-width:100%}
+.puces span{max-width:100%;font-size:13px;font-weight:400;padding:8px 15px;border:1px solid rgba(247,245,240,.32);border-radius:100px;color:var(--ivoire)}
+.lieux blockquote{font-family:var(--citation);font-style:italic;font-size:clamp(18px,2.3vw,22px);line-height:1.6;max-width:640px;color:var(--ivoire)}
+
+/* ============ VALEURS ============ */
+.valeurs{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
+.valeur{background:var(--ivoire);border-radius:10px;padding:34px 28px}
+.valeur svg{width:26px;height:26px;stroke:var(--vert-foret);stroke-width:1.4;fill:none;stroke-linecap:round;stroke-linejoin:round;margin-bottom:20px}
+.valeur .mot{display:block;font-weight:600;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--vert-foret);margin-bottom:10px}
+.valeur h3{font-weight:500;font-size:19px;margin-bottom:10px}
+.valeur p{font-size:15.5px;line-height:1.65;color:var(--eucalyptus-texte)}
+
+/* ============ JOURNEE ============ */
+.moment{display:grid;grid-template-columns:minmax(112px,158px) 1fr;gap:clamp(16px,4vw,44px);padding:30px 0;border-top:1px solid var(--gris-chaud);align-items:start}
+.moment:last-of-type{border-bottom:1px solid var(--gris-chaud)}
+.moment .quand{font-weight:500;font-size:16px;color:var(--eucalyptus-texte);padding-top:4px}
+.moment p{font-size:clamp(16px,2vw,18px);line-height:1.7;text-wrap:pretty}
+@media(max-width:640px){.moment{grid-template-columns:1fr;gap:6px}}
+
+/* ============ MANDATAIRES ============ */
+.mjpm{background:var(--vert-foret);color:var(--ivoire)}
+.mjpm h2,.mjpm h3{color:var(--ivoire)}
+.mjpm .tete-sect p{color:var(--ivoire);opacity:.82}
+.etapes{display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:28px;margin-bottom:52px}
+.etape{border-top:1px solid rgba(247,245,240,.3);padding-top:18px}
+.etape .n{font-weight:600;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gris-chaud)}
+.etape h3{font-weight:500;font-size:18px;margin:11px 0 9px}
+.etape p{font-size:15px;line-height:1.7;color:var(--ivoire);opacity:.8}
+.duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(288px,1fr));gap:24px}
+.encart{background:rgba(247,245,240,.07);border:1px solid rgba(247,245,240,.18);border-radius:10px;padding:30px}
+.encart h3{font-weight:500;font-size:17px;margin-bottom:13px}
+.encart p,.encart li{font-size:15px;line-height:1.72;color:var(--ivoire);opacity:.86}
+.encart ul{list-style:none;margin-top:4px}
+.encart li{padding-left:18px;position:relative;margin-bottom:9px}
+.encart li::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:5px;border-radius:50%;background:var(--sauge)}
+
+/* ============ LIMITES ============ */
+.limites{display:grid;grid-template-columns:repeat(auto-fit,minmax(262px,1fr));gap:32px}
+.limite h3{font-weight:500;font-size:17px;margin:16px 0 9px}
+.limite p{font-size:15.5px;line-height:1.7;color:var(--eucalyptus-texte)}
+
+/* ============ CHRISTELLE ============ */
+.portrait-bloc{display:grid;grid-template-columns:minmax(240px,360px) 1fr;gap:clamp(30px,5vw,68px);align-items:start}
+@media(max-width:820px){.portrait-bloc{grid-template-columns:1fr}}
+.portrait{aspect-ratio:4/5;border-radius:10px;overflow:hidden;background:var(--gris-chaud);position:sticky;top:92px}
+@media(max-width:820px){.portrait{position:static}}
+.portrait picture{width:100%;height:100%}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:center 18%}
+.bio h2{font-weight:600;font-size:clamp(26px,3.4vw,35px);line-height:1.22;margin:14px 0 8px}
+.bio .role{display:block;font-weight:600;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--eucalyptus-texte)}
+.bio p{margin-top:18px;color:var(--eucalyptus-texte);font-size:16.5px;text-wrap:pretty}
+.bio blockquote{margin-top:30px;font-family:var(--citation);font-style:italic;font-size:clamp(19px,2.4vw,23px);line-height:1.55;color:var(--vert-profond)}
+
+/* ============ CONTACT ============ */
+.contact{background:var(--vert-profond);color:var(--ivoire);text-align:center}
+.contact h2{color:var(--ivoire);font-weight:600;font-size:clamp(38px,6vw,62px);line-height:1.08;margin-bottom:28px}
+.contact>p{max-width:560px;margin:0 auto 40px;color:var(--ivoire);opacity:.86;font-size:clamp(16.5px,2.1vw,18px);text-wrap:pretty}
+.coord{display:flex;flex-direction:column;gap:13px;align-items:center}
+.coord a{color:var(--ivoire);font-weight:600;font-size:clamp(19px,2.8vw,26px);border-bottom:1px solid rgba(247,245,240,.45);padding-bottom:5px}
+.coord a:hover{border-bottom-color:var(--ivoire);color:var(--ivoire)}
+.coord .tel{font-size:17px;letter-spacing:.05em;color:var(--ivoire);opacity:.9}
+.coord .zone{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ivoire);opacity:.72;margin-top:6px}
+.pied{margin-top:78px;display:flex;flex-direction:column;align-items:center;gap:22px}
+.pied .logo{width:240px}
+.reseaux{display:flex;gap:16px;justify-content:center;margin-top:4px}
+.reseaux a{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;border:1px solid rgba(247,245,240,.4);color:var(--ivoire)}
+.reseaux a:hover{background:rgba(247,245,240,.12);color:var(--ivoire)}
+.reseaux svg{width:19px;height:19px;fill:currentColor}
+.pied .liens-pied{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;font-size:12.5px}
+.pied .liens-pied a{color:var(--ivoire);opacity:.72;border-bottom:1px solid rgba(247,245,240,.3)}
+.pied .liens-pied a:hover{opacity:1;color:var(--ivoire)}
+.pied .legal{font-size:12px;line-height:1.9;color:var(--ivoire);opacity:.62;max-width:620px}
+</style>
+</head>
+<body>
+
+<a href="#haut" class="evitement">Aller au contenu</a>
+
+<header>
+  <a href="#haut" aria-label="Bras Dessus, Bras Dessous, accueil">
+    <picture>
+      <source type="image/webp" srcset="logo/bdbd-horizontal-380.webp 380w, logo/bdbd-horizontal.webp 560w" sizes="190px">
+      <img class="logo" src="logo/bdbd-horizontal.png"
+           srcset="logo/bdbd-horizontal-380.png 380w, logo/bdbd-horizontal.png 560w" sizes="190px"
+           alt="Bras Dessus, Bras Dessous, le lien pour le bien"
+           width="560" height="105" fetchpriority="high" decoding="async">
+    </picture>
+  </a>
+  <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Ouvrir le menu"><span></span></button>
+  <nav class="liens" id="menu" aria-label="Navigation principale">
+    <a href="#manifeste">Le manifeste</a>
+    <a href="#accompagnement">L'accompagnement</a>
+    <a href="#methode">La méthode</a>
+    <a href="#mandataires">Pour les mandataires</a>
+    <a href="#christelle">Qui je suis</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+<!-- ===== HERO ===== -->
+<section class="hero" id="haut">
+  <span class="surtitre clair">Bras Dessus, Bras Dessous</span>
+  <h1>Bien vieillir<br>est un droit.</h1>
+  <p>J'accompagne les majeurs protégés et les personnes en grande vulnérabilité, à domicile comme en établissement, là où les situations deviennent complexes et où les solutions habituelles ne suffisent plus.</p>
+  <span class="ancre clair"></span>
+</section>
+
+<!-- ===== MANIFESTE ===== -->
+<section class="manifeste" id="manifeste">
+  <div class="wrap">
+    <div class="tete">
+      <span class="surtitre clair">Le manifeste</span>
+      <h2>« Derrière chaque personne que notre société réduit à une maladie ou à une dépendance, il y a une vie. »</h2>
+    </div>
+
+    <div class="manif-duo">
+      <!-- Vidéo verticale 9:16. REMPLACER par :
+           <video src="video/manifeste-bdbd.mp4" poster="img/manifeste-poster.jpg"
+                  controls playsinline preload="none"></video>
+           Sous-titres brûlés obligatoires. -->
+      <figure class="player" id="lecteur">
+        <div class="play"><span class="rond" aria-hidden="true">▶</span>Regarder</div>
+      </figure>
+
+      <div>
+        <div class="litanie">
+          <p>Derrière une ride, <b>il y a un premier amour.</b></p>
+          <p>Derrière un silence, <b>il y a parfois un chagrin.</b></p>
+          <p>Derrière une colère, <b>il y a souvent une peur.</b></p>
+        </div>
+        <p class="sous-player">2 minutes. Des visages, des sorties, des silences, et ce que dix ans de terrain m'ont appris. La suite ne s'écrit pas, elle se regarde.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RAISON D'ÊTRE ===== -->
+<section class="raison">
+  <span class="surtitre">Ma raison d'être</span>
+  <p class="grand">Chaque personne en situation de vulnérabilité doit vivre dans la dignité. J'accompagne le bien vieillir, je lutte contre l'isolement et l'exclusion sociale.</p>
+  <p class="petit">Ma priorité est le maintien de ce qui fait l'essence d'une vie : les liens, l'écoute, les émotions, la liberté de mouvement, la joie. Car même dans les situations les plus complexes, il est toujours possible de réenchanter le quotidien.</p>
+</section>
+
+<!-- ===== L'ACCOMPAGNEMENT ===== -->
+<section class="tint" id="accompagnement">
+  <div class="wrap">
+    <div class="tete-sect">
+      <span class="surtitre">L'accompagnement</span>
+      <h2>Là où les dispositifs classiques s'arrêtent</h2>
+      <p>J'accompagne des personnes atteintes de maladies neurodégénératives ou de troubles psychiatriques (Alzheimer, Parkinson, maladie à corps de Lewy, schizophrénie, bipolarité), à domicile comme en établissement. Pas de protocole plaqué : une présence régulière, adaptée à chaque personne, à son rythme et à son histoire.</p>
+    </div>
+    <div class="cartes">
+      <div class="carte">
+        <span class="ancre"></span>
+        <h3>L'accompagnement psycho-émotionnel</h3>
+        <p>Entrer dans l'univers de l'autre. Comprendre son histoire, son fonctionnement, ses émotions, avant de vouloir changer quoi que ce soit. Avec les personnes en refus de soins, c'est souvent la seule porte d'entrée.</p>
+      </div>
+      <div class="carte">
+        <span class="ancre"></span>
+        <h3>Le quotidien remis en mouvement</h3>
+        <p>Des sorties, des promenades, des repas partagés. Le bien-être et les soins du corps. Le trousseau, l'hygiène, le confort. Ce qui paraît accessoire est souvent ce qui rend une journée vivable.</p>
+      </div>
+      <div class="carte">
+        <span class="ancre"></span>
+        <h3>Le suivi médical et la continuité</h3>
+        <p>Rendez-vous accompagnés, adhésion aux soins, audiences au tribunal. Beaucoup de majeurs protégés n'ont pas de véritable suivi. J'assure une continuité entre les professionnels et le mandataire judiciaire, et je transmets ce qui doit l'être.</p>
+      </div>
+      <div class="carte">
+        <span class="ancre"></span>
+        <h3>Le soutien aux aides à domicile</h3>
+        <p>Elles sont souvent les premières à entrer dans l'intimité des personnes les plus fragiles. Sans elles, rien ne tient. Elles sont pourtant rarement soutenues, et rarement formées aux maladies invisibles. Les accompagner et reconnaître leur engagement, c'est mieux accompagner les personnes dont elles prennent soin.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LA MÉTHODE ===== -->
+<section id="methode">
+  <div class="wrap">
+    <div class="tete-sect">
+      <span class="surtitre">La méthode</span>
+      <h2>Cinq piliers, dans cet ordre</h2>
+      <p>Un accompagnement n'improvise pas. Il commence par comprendre, et il ne s'arrête pas à la mise en place.</p>
+    </div>
+
+    <div class="pilier">
+      <span class="n">01</span>
+      <div>
+        <h3>L'analyse approfondie de la situation</h3>
+        <p>Ce qui bloque, qui gravite autour de la personne, ce qui a déjà été tenté. Rien ne démarre avant.</p>
+      </div>
+    </div>
+    <div class="pilier">
+      <span class="n">02</span>
+      <div>
+        <h3>La construction d'un plan d'action personnalisé</h3>
+        <p>Des préconisations écrites, discutées avec le mandataire avant le début de l'accompagnement.</p>
+      </div>
+    </div>
+    <div class="pilier">
+      <span class="n">03</span>
+      <div>
+        <h3>Un projet de vie porté par des activités adaptées</h3>
+        <p>Le lieu et l'activité ne sont pas des agréments. Ce sont les outils qui rendent la relation possible.</p>
+      </div>
+    </div>
+    <div class="pilier">
+      <span class="n">04</span>
+      <div>
+        <h3>L'interprofessionnalité et la coopération interdisciplinaire</h3>
+        <p>Médecin, infirmiers, kinés, orthophonistes, aides à domicile, équipe d'établissement, famille. Chacun dans son domaine, et de l'information qui circule entre tous.</p>
+      </div>
+    </div>
+    <div class="pilier">
+      <span class="n">05</span>
+      <div>
+        <h3>Le suivi régulier et l'intégration du bien-être et de l'estime de soi dans le quotidien</h3>
+        <p>Un accompagnement se juge dans la durée. La personne accepte-t-elle davantage, va-t-elle mieux, tient-elle chez elle ?</p>
+      </div>
+    </div>
+
+    <div class="lieux">
+      <span class="surtitre clair">Pilier 03</span>
+      <h3>Le lieu n'est pas un décor</h3>
+      <p>Je refuse les accompagnements enfermés entre quatre murs. Sortir n'est pas une récompense. C'est le cadre dans lequel la parole se libère et la confiance s'installe.</p>
+      <div class="puces">
+        <span>La mer, Cabourg</span>
+        <span>La campagne, Rambouillet, Fontainebleau, Barbizon</span>
+        <span>Le restaurant</span>
+        <span>Le musée</span>
+        <span>La promenade</span>
+        <span>Le café</span>
+        <span>La musique, en voiture</span>
+        <span>Les soins des mains et du visage</span>
+        <span>Les courses, le trousseau</span>
+      </div>
+      <blockquote>« C'est souvent dans ces moments-là que naissent les plus belles confidences, les plus grands éclats de rire, les réflexions les plus profondes. »</blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VALEURS CARDINALES ===== -->
+<section class="tint" id="valeurs">
+  <div class="wrap">
+    <div class="tete-sect centre">
+      <span class="surtitre">Les quatre valeurs cardinales</span>
+      <h2>Ce qui tient tout debout</h2>
+    </div>
+    <div class="valeurs">
+      <div class="valeur">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13.5a4 4 0 0 0 5.7.4l3-3a4 4 0 0 0-5.7-5.7l-1.2 1.2"/><path d="M14 10.5a4 4 0 0 0-5.7-.4l-3 3a4 4 0 0 0 5.7 5.7l1.2-1.2"/></svg>
+        <span class="mot">Le lien</span>
+        <h3>Une présence qui dure</h3>
+        <p>Rester relié aux autres et à la vie. C'est le socle : la marque existe pour créer et maintenir de la relation.</p>
+      </div>
+      <div class="valeur">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8h11a3 3 0 1 0-3-3"/><path d="M3 12h15a3 3 0 1 1-3 3"/><path d="M3 16h8"/></svg>
+        <span class="mot">La liberté de mouvement</span>
+        <h3>Garder le monde à portée</h3>
+        <p>Préserver la possibilité d'aller, de sortir, d'expérimenter. Rien ne se joue entre quatre murs.</p>
+      </div>
+      <div class="valeur">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.2 4.6 12.9a4.8 4.8 0 0 1 0-6.8 4.8 4.8 0 0 1 6.8 0l.6.6.6-.6a4.8 4.8 0 0 1 6.8 0 4.8 4.8 0 0 1 0 6.8Z"/></svg>
+        <span class="mot">L'émotion</span>
+        <h3>Ce qui reste quand les mots s'effacent</h3>
+        <p>Reconnaître la sensibilité de chacun, y compris quand la maladie brouille l'expression.</p>
+      </div>
+      <div class="valeur">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7.5" r="3.6"/><path d="M4.8 20.4a7.2 7.2 0 0 1 14.4 0"/></svg>
+        <span class="mot">La dignité</span>
+        <h3>Voir la personne d'abord</h3>
+        <p>Considérer chaque personne dans sa singularité, jamais réduite à sa pathologie.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== UNE JOURNÉE ===== -->
+<section id="pratique">
+  <div class="wrap">
+    <div class="tete-sect">
+      <span class="surtitre">En pratique</span>
+      <h2>Une journée d'accompagnement</h2>
+      <p>Ce qu'il se passe, concrètement, entre le moment où je sonne à la porte et celui où je repars.</p>
+    </div>
+    <div class="moment">
+      <span class="quand">Avant</span>
+      <p>Je viens chercher la personne. Le plus souvent elle est prête. Sinon, le nécessaire a été anticipé avec les aides à domicile pour qu'elle le soit.</p>
+    </div>
+    <div class="moment">
+      <span class="quand">En chemin</span>
+      <p>La musique qu'elle aime. On parle de ce qui l'inquiète, pour que les angoisses tombent avant même d'arriver.</p>
+    </div>
+    <div class="moment">
+      <span class="quand">Sur place</span>
+      <p>Une promenade en bord de mer, un déjeuner face à l'eau, un tour en centre-ville, une collation avant de repartir. Le temps n'est pas compté à la minute.</p>
+    </div>
+    <div class="moment">
+      <span class="quand">Le retour</span>
+      <p>En musique, en repassant ensemble les bons moments de la journée, pour rentrer apaisée chez soi ou en établissement.</p>
+    </div>
+    <div class="moment">
+      <span class="quand">Les autres jours</span>
+      <p>Rendez-vous médicaux, audiences au tribunal, visites de bien-être, présence régulière au domicile. Certaines journées comptent six à sept rendez-vous.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== POUR LES MANDATAIRES ===== -->
+<section class="mjpm" id="mandataires">
+  <div class="wrap">
+    <div class="tete-sect">
+      <span class="surtitre clair">Pour les mandataires judiciaires</span>
+      <h2>Le terrain, quand vous ne pouvez pas y être</h2>
+      <p>Vous gérez un nombre important de mesures, et la charge administrative laisse peu de place à la présence auprès des personnes. J'accompagne les situations complexes : refus de mesure, refus de soins, relations tendues avec les intervenants, solutions déjà toutes essayées.</p>
+    </div>
+
+    <div class="etapes">
+      <div class="etape">
+        <span class="n">Premier échange</span>
+        <h3>On fait connaissance</h3>
+        <p>Votre vision de l'accompagnement, vos attentes, la situation telle que vous la vivez.</p>
+      </div>
+      <div class="etape">
+        <span class="n">Analyse</span>
+        <h3>Un plan de préconisations</h3>
+        <p>Une première analyse écrite, remise avant le démarrage. Vous savez ce que vous engagez.</p>
+      </div>
+      <div class="etape">
+        <span class="n">Suivi</span>
+        <h3>Un rapport après chaque intervention</h3>
+        <p>Les éléments essentiels de la visite, les observations importantes et, s'il y a lieu, les alertes.</p>
+      </div>
+    </div>
+
+    <div class="duo">
+      <div class="encart">
+        <h3>« On a déjà une aide à domicile. »</h3>
+        <p>Ça tombe bien : je n'en suis pas une. Je ne réalise pas les tâches de la vie quotidienne. Mon rôle est différent et complémentaire : l'accompagnement psycho-émotionnel, le bien-être, la relation de confiance, et le lien avec les autres intervenants quand c'est nécessaire.</p>
+      </div>
+      <div class="encart">
+        <h3>Ce que vous y gagnez</h3>
+        <ul>
+          <li>Un regard extérieur sur une situation bloquée</li>
+          <li>Un lien différent, souvent accepté là où les autres ne le sont plus</li>
+          <li>Des crises évitées plutôt que gérées</li>
+          <li>Du temps rendu sur les dossiers les plus lourds</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LIMITES ===== -->
+<section class="tint">
+  <div class="wrap">
+    <div class="tete-sect">
+      <span class="surtitre">Mes limites</span>
+      <h2>Ce que je ne fais pas</h2>
+      <p>Un accompagnement sérieux commence par savoir où il s'arrête.</p>
+    </div>
+    <div class="limites">
+      <div class="limite">
+        <span class="ancre"></span>
+        <h3>Les addictions sévères</h3>
+        <p>Alcool, drogues : ce n'est pas mon domaine de compétence. Ces situations relèvent d'équipes médicales et psychiatriques spécialisées, vers lesquelles j'oriente.</p>
+      </div>
+      <div class="limite">
+        <span class="ancre"></span>
+        <h3>Les accompagnements sans besoin réel</h3>
+        <p>Si la personne est autonome et cherche simplement une présence, ce n'est pas mon métier. J'oriente vers une dame de compagnie ou un autre professionnel.</p>
+      </div>
+      <div class="limite">
+        <span class="ancre"></span>
+        <h3>Le silence</h3>
+        <p>Quand un accompagnement dysfonctionne, je le signale au mandataire. Cela crée parfois des tensions. Je l'assume.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== QUI JE SUIS ===== -->
+<section id="christelle">
+  <div class="wrap portrait-bloc">
+    <div class="portrait">
+      <picture>
+        <source type="image/webp" srcset="img/christelle-portrait-440.webp 440w, img/christelle-portrait.webp 880w" sizes="(max-width:820px) calc(100vw - 2 * var(--pad)), 360px">
+        <img src="img/christelle-portrait.jpg"
+             srcset="img/christelle-portrait-440.jpg 440w, img/christelle-portrait.jpg 880w" sizes="(max-width:820px) calc(100vw - 2 * var(--pad)), 360px"
+             alt="Portrait de Christelle Boutonnet" width="880" height="1100"
+             loading="lazy" decoding="async">
+      </picture>
+    </div>
+    <div class="bio">
+      <span class="role">Fondatrice · Psychopraticienne</span>
+      <h2>J'ai choisi d'accompagner celles et ceux que l'on réduit à une pathologie</h2>
+      <p>Des majeurs protégés, des personnes confrontées à des situations de grande vulnérabilité. Des vies que notre société finit par ne plus regarder.</p>
+      <p>Mon parcours professionnel m'a menée dans des univers très différents, avant que ma vie personnelle ne donne un sens profond à cette vocation. Je me suis alors formée à la psychologie du vieillissement, notamment auprès de Paul-Guiraud, Sainte-Anne et des CMP.</p>
+      <p>Depuis plus de dix ans, j'accompagne là où les situations deviennent complexes. Là où les solutions habituelles ont déjà été tentées, sans succès.</p>
+      <p>Prendre soin des personnes vulnérables, c'est aussi prendre soin de celles et ceux qui sont à leurs côtés. Les aides à domicile sont souvent les premières à entrer dans l'intimité des plus fragiles. Les soutenir et reconnaître leur engagement, c'est mieux accompagner les personnes dont elles prennent soin.</p>
+      <p>Une personne ne devrait jamais perdre sa dignité avec la maladie, la solitude ou la perte d'autonomie. C'est aussi pour cette raison que je prends la parole : pour faire connaître des réalités méconnues, partager ce que le terrain m'apprend, et faire évoluer notre regard sur les personnes âgées, fragilisées ou protégées.</p>
+      <blockquote>« Rien n'est acquis, rien n'est définitif. On peut tous, un jour, devenir vulnérables. »</blockquote>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== CONTACT ===== -->
+<footer class="contact" id="contact">
+  <h2>Demain,<br>c'est nous.</h2>
+  <p>Une situation bloquée, une question, un besoin d'être accompagné ? Écrivez-moi ou appelez, je prendrai le temps de vous répondre.</p>
+  <div class="coord">
+    <a href="mailto:contact@bd-bd.fr">contact@bd-bd.fr</a>
+    <span class="tel"><a href="tel:+33689238086" style="border:0;font-size:inherit;font-weight:400">06 89 23 80 86</a></span>
+  </div>
+
+  <div class="reseaux">
+    <a href="https://www.linkedin.com/in/christelle-boutonnet/" target="_blank" rel="noopener" aria-label="Christelle Boutonnet sur LinkedIn">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21h-4V9Z"/></svg>
+    </a>
+    <a href="https://www.instagram.com/christelle.boutonnet" target="_blank" rel="noopener" aria-label="Christelle Boutonnet sur Instagram">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23a3.8 3.8 0 0 1-.9 1.38c-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.8 3.8 0 0 1-1.38-.9 3.8 3.8 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2Zm0 1.8c-3.14 0-3.51.01-4.75.07-1.15.05-1.77.24-2.18.4-.55.21-.94.47-1.35.88-.41.41-.67.8-.88 1.35-.16.41-.35 1.03-.4 2.18C2.38 10.12 2.37 10.49 2.37 12s.01 1.88.07 3.12c.05 1.15.24 1.77.4 2.18.21.55.47.94.88 1.35.41.41.8.67 1.35.88.41.16 1.03.35 2.18.4 1.24.06 1.61.07 4.75.07s3.51-.01 4.75-.07c1.15-.05 1.77-.24 2.18-.4.55-.21.94-.47 1.35-.88.41-.41.67-.8.88-1.35.16-.41.35-1.03.4-2.18.06-1.24.07-1.61.07-3.12s-.01-1.88-.07-3.12c-.05-1.15-.24-1.77-.4-2.18a3.6 3.6 0 0 0-.88-1.35 3.6 3.6 0 0 0-1.35-.88c-.41-.16-1.03-.35-2.18-.4C15.51 4.01 15.14 4 12 4Zm0 3.03a4.97 4.97 0 1 1 0 9.94 4.97 4.97 0 0 1 0-9.94Zm0 1.8a3.17 3.17 0 1 0 0 6.34 3.17 3.17 0 0 0 0-6.34Zm5.2-3.24a1.17 1.17 0 1 1 0 2.34 1.17 1.17 0 0 1 0-2.34Z"/></svg>
+    </a>
+  </div>
+
+  <div class="pied">
+    <picture>
+      <source type="image/webp" srcset="logo/bdbd-horizontal-ivoire-480.webp 480w, logo/bdbd-horizontal-ivoire.webp 560w" sizes="240px">
+      <img class="logo" src="logo/bdbd-horizontal-ivoire.png"
+           srcset="logo/bdbd-horizontal-ivoire-480.png 480w, logo/bdbd-horizontal-ivoire.png 560w" sizes="240px"
+           alt="Bras Dessus, Bras Dessous, le lien pour le bien"
+           width="560" height="94" loading="lazy" decoding="async">
+    </picture>
+    <div class="liens-pied">
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="mentions-legales.html#donnees">Données personnelles</a>
+    </div>
+    <span class="legal">Bras Dessus, Bras Dessous · SARL au capital de 1 000 € · SIREN 905 157 004 · RCS Toulon</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var b=document.getElementById('burger'), m=document.getElementById('menu');
+  if(!b||!m) return;
+  function set(v){ b.setAttribute('aria-expanded',v); m.setAttribute('data-ouvert',v);
+    b.setAttribute('aria-label', v==='true' ? 'Fermer le menu' : 'Ouvrir le menu'); }
+  b.addEventListener('click',function(){ set(b.getAttribute('aria-expanded')==='true'?'false':'true'); });
+  m.addEventListener('click',function(e){ if(e.target.tagName==='A') set('false'); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&b.getAttribute('aria-expanded')==='true'){ set('false'); b.focus(); } });
+  window.addEventListener('resize',function(){ if(window.innerWidth>960) set('false'); });
+})();
+</script>
+
+</body>
+</html>
