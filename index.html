@@ -5,7 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Bras Dessus, Bras Dessous | Accompagnement des personnes vulnérables et des majeurs protégés</title>
 <meta name="description" content="Christelle Boutonnet accompagne les majeurs protégés et les personnes en grande vulnérabilité, à domicile comme en établissement. Paris et Île-de-France.">
-<link rel="icon" type="image/png" href="logo/favicon-512.png">
+<!-- L'onglet n'a jamais besoin de 512 px : il prend le 32. Le 512 reste
+     declare pour les ecrans denses et l'ajout a l'ecran d'accueil. -->
+<link rel="icon" type="image/png" sizes="32x32" href="logo/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="logo/favicon-48.png">
+<link rel="icon" type="image/png" sizes="512x512" href="logo/favicon-512.png">
 <link rel="apple-touch-icon" href="logo/favicon-180.png">
 <link rel="canonical" href="https://bd-bd.fr/">
 <meta property="og:type" content="website">
@@ -18,6 +22,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1F4C41">
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -45,6 +50,10 @@
 <link rel="preload" href="fonts/poppins-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/poppins-500-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<!-- Le motif du hero est au-dessus de la ligne de flottaison et Chrome le
+     retient comme element LCP : sans prechargement, l'affichage du hero
+     attendait son telechargement (2,1 s au lieu de 1,4 s en mobile bride). -->
+<link rel="preload" href="logo/bdbd-motif.png" as="image" fetchpriority="high">
 <style>
 /* ============ POLICES LOCALES ============ */
 /* Poppins et Lora, sous-ensembles latin et latin-ext generes depuis les sources
@@ -87,10 +96,17 @@
   --display:'Poppins',system-ui,sans-serif;   /* titres, labels, texte courant */
   --citation:'Lora',Georgia,serif;            /* citations, verbatims, manifeste */
 
+  /* Opacite du motif de fond. Charte 05.2 : 20 % maximum. Un seul jeton pour
+     les trois emplacements, mettre a 0 le retire partout d'un coup. */
+  --motif:.085;
+
   --pad:clamp(20px,5vw,56px);
   --sect:clamp(80px,12vh,132px);
   --max:1120px;
 }
+/* Fondu entre la page d'accueil et les mentions legales, sur les navigateurs
+   qui savent le faire. Ignore ailleurs. */
+@view-transition{navigation:auto}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
@@ -107,6 +123,41 @@ picture{display:block}
 .evitement{position:absolute;left:-9999px;top:0;z-index:100;background:var(--vert-profond);color:var(--ivoire);padding:12px 20px;font-weight:600}
 .evitement:focus{left:12px;top:12px;color:var(--ivoire)}
 section{padding:var(--sect) var(--pad)}
+/* Sans cela, cliquer dans le menu posait le titre de section derriere
+   l'en-tete collant. */
+section[id],footer[id]{scroll-margin-top:80px}
+
+/* ============ MOTIF DE FOND, CHARTE 05.2 ============ */
+/* « Le signe repete en gris chaud, a 20 % d'opacite maximum. Jamais en prune. »
+   logo/bdbd-motif.png EST le signe officiel : geometrie inchangee, repeinte en
+   gris chaud, la couleur que la charte prescrit pour le motif. Rien n'a ete
+   redessine. Pose en ::before, donc aucun noeud dans le DOM et rien a lire
+   pour un lecteur d'ecran. */
+.hero,.manifeste,.contact,.player{position:relative;isolation:isolate}
+.hero::before,.manifeste::before,.contact::before,.player::before{
+  content:"";position:absolute;z-index:-1;pointer-events:none;
+  background-image:url(logo/bdbd-motif.png);background-repeat:no-repeat;
+  opacity:var(--motif)}
+
+/* Hero : un seul signe, large, decadre, qui passe derriere le titre et sort
+   par la droite. C'est le « logo en fond de headline ». */
+.hero::before{inset:0;background-size:min(1150px,150%) auto;background-position:center 46%}
+
+/* Manifeste : le signe repete, en bandeau bas, tres efface. */
+.manifeste::before{inset:auto 0 0 0;height:min(46%,340px);
+  background-repeat:repeat-x;background-size:auto 100%;background-position:left bottom;
+  opacity:calc(var(--motif) * .62)}
+
+/* Contact : le signe centre derriere la signature de cloture. Il s'arrete
+   avant le bloc du pied, dont le logo garde sa zone de protection (charte 02.3). */
+.contact::before{inset:0 0 auto 0;height:min(66%,560px);
+  background-size:min(860px,118%) auto;background-position:center 52%}
+
+/* Le cadre du lecteur video n'est pas encore rempli : le signe y tient la
+   surface plutot que de laisser un aplat vide. */
+.player::before{inset:0;background-size:150% auto;background-position:center 42%;
+  opacity:calc(var(--motif) * 1.5)}
+@media(max-width:760px){.hero::before{background-size:min(1150px,205%) auto;background-position:center 44%}}
 
 /* Surtitre, charte 04.2 : 9 pt Bold, interlettrage +2,4 */
 .surtitre{display:block;font-weight:600;font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--vert-foret)}
@@ -121,13 +172,43 @@ h1,h2,h3{font-family:var(--display);color:var(--vert-profond)}
 .ancre{display:block;width:6px;height:6px;border-radius:50%;background:var(--vert-foret)}
 .ancre.clair{background:var(--sauge)}
 
+/* ============ APPARITION AU DEFILEMENT ============ */
+/* La classe .anim est posee par le script : sans JavaScript, tout reste
+   visible. Le hero en est exclu, il porte le plus grand element de la page et
+   ne doit pas retarder son affichage. Neutralise si le visiteur a demande
+   moins d'animations. */
+@media(prefers-reduced-motion:no-preference){
+  .anim{opacity:0;transform:translateY(15px);
+    transition:opacity .62s cubic-bezier(.22,.61,.36,1),transform .62s cubic-bezier(.22,.61,.36,1)}
+  .anim.vu{opacity:1;transform:none}
+}
+
 /* ============ EN-TETE ============ */
 header{position:sticky;top:0;z-index:60;background:rgba(247,245,240,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--gris-chaud);display:flex;align-items:center;justify-content:space-between;gap:24px;padding:13px var(--pad)}
 /* Version horizontale, taille minimale 170 px, charte 02.3 */
 header .logo{width:190px}
 @media(max-width:420px){header .logo{width:158px}}
+/* Filet de progression, charte 05.2 : un filet fin, ininterrompu, qui traduit
+   la continuite du lien. Il occupe le bord bas de l'en-tete, il ne souligne
+   aucun titre. Largeur pilotee par le script, en pourcentage de la page lue. */
+.progression{position:absolute;left:0;bottom:-1px;height:2px;width:0;
+  background:var(--sauge);transition:width .12s linear;pointer-events:none}
+@media(prefers-reduced-motion:reduce){.progression{transition:none}}
+
 nav.liens{display:flex;gap:clamp(14px,2.2vw,28px);font-size:14px;font-weight:500}
 nav.liens a{color:var(--vert-foret)}
+/* Section courante : le point d'ancrage de la charte (05.2) sert de repere de
+   lecture, un seul a la fois dans la composition. */
+nav.liens a{position:relative}
+nav.liens a[aria-current="location"]{color:var(--vert-profond);font-weight:600}
+nav.liens a[aria-current="location"]::after{content:"";position:absolute;
+  left:50%;translate:-50% 0;bottom:-9px;width:5px;height:5px;border-radius:50%;
+  background:var(--vert-foret)}
+@media(max-width:960px){
+  nav.liens a[aria-current="location"]::after{left:0;translate:0 0;bottom:auto;top:50%;
+    margin-top:-2.5px}
+  nav.liens a[aria-current="location"]{padding-left:15px}
+}
 
 /* Bouton du menu, visible sous 960 px uniquement */
 .burger{display:none;background:none;border:1px solid var(--gris-chaud);border-radius:8px;width:46px;height:46px;align-items:center;justify-content:center;cursor:pointer;flex:none;padding:0}
@@ -166,7 +247,7 @@ nav.liens a{color:var(--vert-foret)}
 .litanie p b{font-weight:500;opacity:1;color:var(--ivoire)}
 .manif-duo{display:grid;grid-template-columns:minmax(260px,340px) 1fr;gap:clamp(30px,5vw,64px);align-items:center;max-width:900px;margin:0 auto}
 @media(max-width:760px){.manif-duo{grid-template-columns:1fr;gap:34px}.player{max-width:300px;margin:0 auto}}
-.player{position:relative;border-radius:12px;overflow:hidden;background:var(--vert-profond);aspect-ratio:9/16;cursor:pointer;border:0;width:100%;padding:0;display:block}
+.player{border-radius:12px;overflow:hidden;background:var(--vert-profond);aspect-ratio:9/16;border:1px solid rgba(247,245,240,.16);width:100%;padding:0;display:block}
 .player video{width:100%;height:100%;object-fit:cover}
 .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:18px;color:var(--ivoire);font-family:var(--display);font-weight:600;font-size:12px;letter-spacing:.24em;text-transform:uppercase;background:linear-gradient(180deg,rgba(31,76,65,.25),rgba(31,76,65,.62));border:0;cursor:pointer;width:100%}
 .play .rond{width:72px;height:72px;border-radius:50%;background:var(--ivoire);color:var(--vert-profond);display:flex;align-items:center;justify-content:center;font-size:21px;padding-left:6px;transition:transform .25s ease}
@@ -208,7 +289,11 @@ nav.liens a{color:var(--vert-foret)}
 
 /* ============ VALEURS ============ */
 .valeurs{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
-.valeur{background:var(--ivoire);border-radius:10px;padding:34px 28px}
+/* Un filet gris chaud plutot qu'une ombre : la charte proscrit les effets
+   (07.3). Le bloc se souleve d'un pixel au survol, rien de plus. */
+.valeur{background:var(--ivoire);border-radius:10px;padding:34px 28px;
+  border:1px solid var(--gris-chaud);transition:transform .3s ease,border-color .3s ease}
+@media(hover:hover){.valeur:hover{transform:translateY(-2px);border-color:var(--sauge)}}
 .valeur svg{width:26px;height:26px;stroke:var(--vert-foret);stroke-width:1.4;fill:none;stroke-linecap:round;stroke-linejoin:round;margin-bottom:20px}
 .valeur .mot{display:block;font-weight:600;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--vert-foret);margin-bottom:10px}
 .valeur h3{font-weight:500;font-size:19px;margin-bottom:10px}
@@ -231,7 +316,8 @@ nav.liens a{color:var(--vert-foret)}
 .etape h3{font-weight:500;font-size:18px;margin:11px 0 9px}
 .etape p{font-size:15px;line-height:1.7;color:var(--ivoire);opacity:.8}
 .duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(288px,1fr));gap:24px}
-.encart{background:rgba(247,245,240,.07);border:1px solid rgba(247,245,240,.18);border-radius:10px;padding:30px}
+.encart{background:rgba(247,245,240,.07);border:1px solid rgba(247,245,240,.18);border-radius:10px;padding:30px;transition:border-color .3s ease}
+@media(hover:hover){.encart:hover{border-color:rgba(247,245,240,.4)}}
 .encart h3{font-weight:500;font-size:17px;margin-bottom:13px}
 .encart p,.encart li{font-size:15px;line-height:1.72;color:var(--ivoire);opacity:.86}
 .encart ul{list-style:none;margin-top:4px}
@@ -256,7 +342,10 @@ nav.liens a{color:var(--vert-foret)}
 .bio blockquote{margin-top:30px;font-family:var(--citation);font-style:italic;font-size:clamp(19px,2.4vw,23px);line-height:1.55;color:var(--vert-profond)}
 
 /* ============ CONTACT ============ */
-.contact{background:var(--vert-profond);color:var(--ivoire);text-align:center}
+/* Le bloc de contact est un <footer>, pas un <section> : la regle de padding
+   des sections ne l'atteignait jamais et le titre se collait au bord haut du
+   pavé vert, sans aucune respiration. Meme rythme que les autres sections. */
+.contact{background:var(--vert-profond);color:var(--ivoire);text-align:center;padding:var(--sect) var(--pad)}
 .contact h2{color:var(--ivoire);font-weight:600;font-size:clamp(38px,6vw,62px);line-height:1.08;margin-bottom:28px}
 .contact>p{max-width:560px;margin:0 auto 40px;color:var(--ivoire);opacity:.86;font-size:clamp(16.5px,2.1vw,18px);text-wrap:pretty}
 .coord{display:flex;flex-direction:column;gap:13px;align-items:center}
@@ -283,11 +372,11 @@ nav.liens a{color:var(--vert-foret)}
 <header>
   <a href="#haut" aria-label="Bras Dessus, Bras Dessous, accueil">
     <picture>
-      <source type="image/webp" srcset="logo/bdbd-horizontal-380.webp 380w, logo/bdbd-horizontal.webp 560w" sizes="190px">
+      <source type="image/webp" srcset="logo/bdbd-horizontal-190.webp 190w, logo/bdbd-horizontal-380.webp 380w, logo/bdbd-horizontal.webp 560w" sizes="190px">
       <img class="logo" src="logo/bdbd-horizontal.png"
-           srcset="logo/bdbd-horizontal-380.png 380w, logo/bdbd-horizontal.png 560w" sizes="190px"
+           srcset="logo/bdbd-horizontal-190.png 190w, logo/bdbd-horizontal-380.png 380w, logo/bdbd-horizontal.png 560w" sizes="190px"
            alt="Bras Dessus, Bras Dessous, le lien pour le bien"
-           width="560" height="105" fetchpriority="high" decoding="async">
+           width="560" height="105" decoding="async">
     </picture>
   </a>
   <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Ouvrir le menu"><span></span></button>
@@ -299,6 +388,7 @@ nav.liens a{color:var(--vert-foret)}
     <a href="#christelle">Qui je suis</a>
     <a href="#contact">Contact</a>
   </nav>
+  <span class="progression" id="progression" aria-hidden="true"></span>
 </header>
 
 <main>
@@ -631,9 +721,9 @@ nav.liens a{color:var(--vert-foret)}
 
   <div class="pied">
     <picture>
-      <source type="image/webp" srcset="logo/bdbd-horizontal-ivoire-480.webp 480w, logo/bdbd-horizontal-ivoire.webp 560w" sizes="240px">
+      <source type="image/webp" srcset="logo/bdbd-horizontal-ivoire-240.webp 240w, logo/bdbd-horizontal-ivoire-480.webp 480w, logo/bdbd-horizontal-ivoire.webp 560w" sizes="240px">
       <img class="logo" src="logo/bdbd-horizontal-ivoire.png"
-           srcset="logo/bdbd-horizontal-ivoire-480.png 480w, logo/bdbd-horizontal-ivoire.png 560w" sizes="240px"
+           srcset="logo/bdbd-horizontal-ivoire-240.png 240w, logo/bdbd-horizontal-ivoire-480.png 480w, logo/bdbd-horizontal-ivoire.png 560w" sizes="240px"
            alt="Bras Dessus, Bras Dessous, le lien pour le bien"
            width="560" height="94" loading="lazy" decoding="async">
     </picture>
@@ -646,6 +736,7 @@ nav.liens a{color:var(--vert-foret)}
 </footer>
 
 <script>
+/* Menu ---------------------------------------------------------------- */
 (function(){
   var b=document.getElementById('burger'), m=document.getElementById('menu');
   if(!b||!m) return;
@@ -655,6 +746,108 @@ nav.liens a{color:var(--vert-foret)}
   m.addEventListener('click',function(e){ if(e.target.tagName==='A') set('false'); });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&b.getAttribute('aria-expanded')==='true'){ set('false'); b.focus(); } });
   window.addEventListener('resize',function(){ if(window.innerWidth>960) set('false'); });
+})();
+
+/* Geometrie mise en cache ---------------------------------------------
+   Lire scrollHeight ou offsetTop a chaque image de defilement forcait le
+   navigateur a recalculer la mise en page en continu. Ces valeurs ne changent
+   qu'au redimensionnement : on les releve une fois et on les garde.
+   Les apparitions n'animent qu'opacity et transform, qui ne touchent pas au
+   flux : le cache reste donc valable pendant toute l'animation.             */
+var Geo=(function(){
+  var course=0, hauts=[], suivis=[];
+  function relever(){
+    course=document.documentElement.scrollHeight-window.innerHeight;
+    hauts=suivis.map(function(e){ return e?e.offsetTop:Infinity; });
+  }
+  addEventListener('resize',relever,{passive:true});
+  addEventListener('load',relever);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(relever);
+  return {
+    // Le premier releve attend la fin du premier rendu : lire la mise en page
+    // pendant l'analyse du document forcait un calcul de 46 ms sur le chemin
+    // critique. En haut de page, course=0 donne un filet a 0 %, ce qui est
+    // exactement l'etat attendu.
+    suivre:function(l){ suivis=l; requestAnimationFrame(relever); },
+    relever:relever,
+    course:function(){ return course; },
+    hauts:function(){ return hauts; },
+    // course vaut 0 tant que le premier releve n'a pas eu lieu : sans le test
+    // course>0, « en bas de page » etait vrai des le chargement et la derniere
+    // entree du menu se marquait comme courante alors qu'on est en haut.
+    enBas:function(){ return course>0 && window.scrollY>=course-2; }
+  };
+})();
+
+/* Apparition au defilement --------------------------------------------
+   La classe .anim n'est posee que si le script tourne et si le visiteur
+   n'a pas demande moins d'animations : sans JavaScript, rien n'est cache.
+   Le hero est exclu, il porte le plus grand element de la page.          */
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var cibles=document.querySelectorAll(
+    '.tete-sect, .raison > *, .litanie p, .sous-player, .player, .carte, .pilier,'+
+    '.lieux, .valeur, .moment, .etape, .encart, .limite, .portrait, .bio > *,'+
+    '.coord, .reseaux, .pied');
+  if(!cibles.length) return;
+  for(var i=0;i<cibles.length;i++) cibles[i].classList.add('anim');
+
+  function montrer(el,retard){
+    el.style.transitionDelay=(retard||0)+'ms';
+    el.classList.add('vu');
+    vue.unobserve(el);
+  }
+  // Marge en pixels et non en pourcentage : sur une fenetre tres haute, une
+  // marge relative pouvait exclure durablement le bloc de pied, qui restait
+  // alors invisible. Seuil a 0 pour que les blocs plus hauts que la fenetre
+  // se declenchent aussi.
+  var vue=new IntersectionObserver(function(entrees){
+    entrees.forEach(function(e){
+      if(!e.isIntersecting) return;
+      // Leger decalage entre voisins d'une meme rangee, plafonne pour que
+      // rien n'attende trop longtemps.
+      var f=e.target.parentElement, r=f?[].indexOf.call(f.children,e.target):0;
+      montrer(e.target,Math.min(r,4)*70);
+    });
+  },{rootMargin:'0px 0px -48px 0px',threshold:0});
+  for(var j=0;j<cibles.length;j++) vue.observe(cibles[j]);
+
+  // Filet de securite : arrive en bas de page, plus rien ne doit attendre.
+  // Aucun contenu ne peut rester masque, quelle que soit la hauteur de fenetre.
+  addEventListener('scroll',function(){
+    if(!Geo.enBas()) return;
+    for(var k=0;k<cibles.length;k++) if(!cibles[k].classList.contains('vu')) montrer(cibles[k],0);
+  },{passive:true});
+})();
+
+/* Filet de progression et section courante ---------------------------- */
+(function(){
+  var filet=document.getElementById('progression');
+  var liens=[].slice.call(document.querySelectorAll('nav.liens a[href^="#"]'));
+  Geo.suivre(liens.map(function(a){ return document.getElementById(a.getAttribute('href').slice(1)); }));
+  // -1 signifie « aucune section courante », l'etat du hero. Ne pas utiliser
+  // null : en JavaScript null >= 0 vaut true, et le garde-fou sautait.
+  var actif=-1, attendu=false;
+
+  function mesurer(){
+    attendu=false;
+    var course=Geo.course(), y=window.scrollY;
+    if(filet) filet.style.width=(course>0?Math.min(100,Math.max(0,y/course*100)):0)+'%';
+    // La section courante est la derniere dont le haut est passe sous l'en-tete.
+    var hauts=Geo.hauts(), repere=y+140, trouve=-1;
+    for(var i=0;i<hauts.length;i++) if(hauts[i]<=repere) trouve=i;
+    // En bas de page, la derniere entree du menu prend la main.
+    if(Geo.enBas()) trouve=liens.length-1;
+    if(trouve===actif) return;
+    if(actif>-1) liens[actif].removeAttribute('aria-current');
+    if(trouve>-1) liens[trouve].setAttribute('aria-current','location');
+    actif=trouve;
+  }
+  function planifier(){ if(!attendu){ attendu=true; requestAnimationFrame(mesurer); } }
+  addEventListener('scroll',planifier,{passive:true});
+  addEventListener('resize',function(){ Geo.relever(); planifier(); },{passive:true});
+  mesurer();
 })();
 </script>
 

@@ -6,7 +6,12 @@
 <title>Mentions légales | Bras Dessus, Bras Dessous</title>
 <meta name="description" content="Mentions légales et informations sur les données personnelles du site de Bras Dessus, Bras Dessous.">
 <meta name="robots" content="noindex, follow">
-<link rel="icon" type="image/png" href="logo/favicon-512.png">
+<meta name="theme-color" content="#1F4C41">
+<!-- L'onglet n'a jamais besoin de 512 px : il prend le 32. Le 512 reste
+     declare pour les ecrans denses et l'ajout a l'ecran d'accueil. -->
+<link rel="icon" type="image/png" sizes="32x32" href="logo/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="logo/favicon-48.png">
+<link rel="icon" type="image/png" sizes="512x512" href="logo/favicon-512.png">
 <link rel="apple-touch-icon" href="logo/favicon-180.png">
 <!-- Polices servies par le site lui-meme. Aucun appel a un service distant. -->
 <link rel="preload" href="fonts/poppins-400-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -30,9 +35,12 @@
   --sauge:#83A291; --ivoire:#F7F5F0; --gris-chaud:#D2CFC8;
   /* Meme variante AA que sur la page d'accueil : eucalyptus assombri de 6 %. */
   --eucalyptus-texte:#59706B;
+  /* Charte 05.2 : 20 % maximum pour le motif de fond. */
+  --motif:.10;
   --display:'Poppins',system-ui,sans-serif;
   --pad:clamp(20px,5vw,56px);
 }
+@view-transition{navigation:auto}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--ivoire);color:var(--vert-foret);font-family:var(--display);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
 a{color:var(--vert-profond)}
@@ -60,7 +68,12 @@ ul{margin:6px 0 18px 20px;color:var(--eucalyptus-texte)}
 li{margin-bottom:7px}
 .avertissement{background:#EFEDE6;border-left:3px solid var(--sauge);padding:20px 24px;margin:22px 0;font-size:15px;color:var(--vert-foret)}
 .avertissement strong{display:block;font-weight:600;margin-bottom:6px}
-footer{background:var(--vert-profond);color:var(--ivoire);text-align:center;padding:60px var(--pad)}
+/* Motif de fond, charte 05.2 : le signe en gris chaud, sous le seuil de 20 %.
+   Le meme jeton --motif que sur la page d'accueil. */
+footer{background:var(--vert-profond);color:var(--ivoire);text-align:center;padding:60px var(--pad);position:relative;isolation:isolate}
+footer::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:url(logo/bdbd-motif.png) no-repeat center 30%;
+  background-size:min(760px,120%) auto;opacity:var(--motif)}
 footer picture{margin:0 auto 20px;width:220px}
 footer img{width:220px}
 footer a{color:var(--ivoire)}
@@ -72,11 +85,11 @@ footer .legal{font-size:12px;opacity:.62;line-height:1.9}
 <header>
   <a href="index.html" aria-label="Bras Dessus, Bras Dessous, accueil">
     <picture>
-      <source type="image/webp" srcset="logo/bdbd-horizontal-380.webp 380w, logo/bdbd-horizontal.webp 560w" sizes="190px">
+      <source type="image/webp" srcset="logo/bdbd-horizontal-190.webp 190w, logo/bdbd-horizontal-380.webp 380w, logo/bdbd-horizontal.webp 560w" sizes="190px">
       <img class="logo" src="logo/bdbd-horizontal.png"
-           srcset="logo/bdbd-horizontal-380.png 380w, logo/bdbd-horizontal.png 560w" sizes="190px"
+           srcset="logo/bdbd-horizontal-190.png 190w, logo/bdbd-horizontal-380.png 380w, logo/bdbd-horizontal.png 560w" sizes="190px"
            alt="Bras Dessus, Bras Dessous, le lien pour le bien"
-           width="560" height="105" fetchpriority="high" decoding="async">
+           width="560" height="105" decoding="async">
     </picture>
   </a>
   <nav><a href="index.html">Retour au site</a></nav>
@@ -153,9 +166,9 @@ footer .legal{font-size:12px;opacity:.62;line-height:1.9}
 
 <footer>
   <picture>
-    <source type="image/webp" srcset="logo/bdbd-horizontal-ivoire-480.webp 480w, logo/bdbd-horizontal-ivoire.webp 560w" sizes="220px">
+    <source type="image/webp" srcset="logo/bdbd-horizontal-ivoire-240.webp 240w, logo/bdbd-horizontal-ivoire-480.webp 480w, logo/bdbd-horizontal-ivoire.webp 560w" sizes="220px">
     <img src="logo/bdbd-horizontal-ivoire.png"
-         srcset="logo/bdbd-horizontal-ivoire-480.png 480w, logo/bdbd-horizontal-ivoire.png 560w" sizes="220px"
+         srcset="logo/bdbd-horizontal-ivoire-240.png 240w, logo/bdbd-horizontal-ivoire-480.png 480w, logo/bdbd-horizontal-ivoire.png 560w" sizes="220px"
          alt="Bras Dessus, Bras Dessous, le lien pour le bien"
          width="560" height="94" loading="lazy" decoding="async">
   </picture>
